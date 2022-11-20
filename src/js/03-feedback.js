@@ -5,12 +5,12 @@ const refs = {
   input: document.querySelector('input'),
 };
 
-const dataForm = {};
-const STORAGE_KEY = 'feedback-form-state';
-populateTextarea();
 // refs.textarea.addEventListener('input', throttle(onTexteriaInput, 740));
 refs.form.addEventListener('input', throttle(onTexteriaInput, 740));
 refs.form.addEventListener('submit', onFormSubmit);
+const dataForm = {};
+const STORAGE_KEY = 'feedback-form-state';
+populateTextarea();
 
 function onTexteriaInput(e) {
   // console.log(e.target.name)
