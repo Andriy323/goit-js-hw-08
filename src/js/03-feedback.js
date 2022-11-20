@@ -16,7 +16,7 @@ function onTexteriaInput(e) {
   // console.log(e.target.name)
 
   dataForm[e.target.name] = e.target.value;
-  stringDataForm = JSON.stringify(dataForm);
+  const stringDataForm = JSON.stringify(dataForm);
   localStorage.setItem(STORAGE_KEY, stringDataForm);
   // console.log(dataForm)
   // console.log(stringDataForm, "string")
