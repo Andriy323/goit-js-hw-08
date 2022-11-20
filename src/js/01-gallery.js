@@ -1,4 +1,5 @@
 // Add imports above this line
+
 import { galleryItems } from './gallery-items';
 // Описаний в документації
 import SimpleLightbox from 'simplelightbox';
