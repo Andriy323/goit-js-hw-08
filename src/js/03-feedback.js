@@ -8,20 +8,23 @@ const refs = {
 // refs.textarea.addEventListener('input', throttle(onTexteriaInput, 740));
 refs.form.addEventListener('input', throttle(onTexteriaInput, 740));
 refs.form.addEventListener('submit', onFormSubmit);
-const dataForm = {};
+
 const STORAGE_KEY = 'feedback-form-state';
+
+// Варіант 1
+const valueDataForm = localStorage.getItem(STORAGE_KEY);
+let dataForm = valueDataForm ? JSON.parse(valueDataForm) : {};
+
+// Варіант 2
+// let dataForm =  JSON.parse(valueDataForm) || {}
+
 populateTextarea();
 
 function onTexteriaInput(e) {
-  // console.log(e.target.name)
-
   dataForm[e.target.name] = e.target.value;
   const stringDataForm = JSON.stringify(dataForm);
+
   localStorage.setItem(STORAGE_KEY, stringDataForm);
-  // console.log(dataForm)
-  // console.log(stringDataForm, "string")
-  // const message = e.currentTarget.value;
-  //  .setItem(STORAGE_KEY, message);
 }
 
 function onFormSubmit(e) {
@@ -36,7 +39,6 @@ function populateTextarea() {
   if (saveTexterea === null) {
     return;
   }
-  // console.log(saveTexterea);
   refs.textarea.value = saveTexterea['message'] || '';
   refs.input.value = saveTexterea['email'] || '';
 }
