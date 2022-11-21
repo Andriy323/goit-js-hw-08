@@ -22,6 +22,7 @@ populateTextarea();
 
 function onTexteriaInput(e) {
   dataForm[e.target.name] = e.target.value;
+
   const stringDataForm = JSON.stringify(dataForm);
 
   localStorage.setItem(STORAGE_KEY, stringDataForm);
@@ -32,6 +33,7 @@ function onFormSubmit(e) {
   e.currentTarget.reset();
 
   localStorage.removeItem(STORAGE_KEY);
+  dataForm = {};
 }
 
 function populateTextarea() {
